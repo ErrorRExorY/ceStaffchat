@@ -88,12 +88,12 @@ const ChatTab: React.FC<Props> = ({ messages, sourceData, userSettings }) => {
   const commands = [
     {
       name: "clear",
-      description: "Clear all of the current messages.",
+      description: "Lösche den aktuellen Verlauf.",
       function: clearFunction,
     },
     {
       name: "image",
-      description: "Send an image, ex: /image (image_url)",
+      description: "Sende ein Bild, bsp.: /image (bild_url)",
       function: imageFunction,
     },
   ];
@@ -239,7 +239,7 @@ const ChatTab: React.FC<Props> = ({ messages, sourceData, userSettings }) => {
             <TextInput
               className={`rounded w-full p-1 text-white font-inter font-semibold transition`}
               leftSection={<MessagesSquare size={16} />}
-              placeholder="Input a message"
+              placeholder="Schreibe eine Nachricht..."
               value={messageData.inputData}
               onChange={(e) => {
                 const value = e.target.value;
