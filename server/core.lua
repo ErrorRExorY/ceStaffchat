@@ -1,6 +1,9 @@
 ---@type adminData[]
 AdminData = {}
 
+---@type playerData[]
+OnlinePlayersData = {}
+
 ---@param _source string
 ---@param _oldID string
 AddEventHandler("playerJoining", function(_source, _oldID)
@@ -18,36 +21,44 @@ AddEventHandler("playerJoining", function(_source, _oldID)
     AdminData[tostring(source)] = player
     Debug(player.name, "was added to the AdminData table.")
   end
+
+  OnlinePlayersData[tostring(source)] = player
+  Debug(player.name, "was added to the OnlinePlayersData table.")
 end)
 
 AddEventHandler("playerDropped", function(_reason)
-  if not AdminData[tostring(source)] then
-    return Debug("[netEvent:playerDropped] Event was triggered, but the source isn't in the AdminData table.")
+  if AdminData[tostring(source)] then
+    AdminData[tostring(source)] = nil
+    Debug("[netEvent:playerDropped] Event was triggered, and the player was removed from the AdminData table.")
   end
 
-  AdminData[tostring(source)] = nil
-  Debug("[netEvent:playerDropped] Event was triggered, and the player was removed from the AdminData table.")
+  OnlinePlayersData[tostring(source)] = nil
+  Debug("[netEvent:playerDropped] Event was triggered, and the player was removed from the OnlinePlayersData table.")
 end)
 
 SetTimeout(200, function()
   local OnlinePlayers = GetPlayers()
 
   Debug("AdminData table before looping through all players: ", json.encode(AdminData))
+  Debug("OnlinePlayersData table before looping through all players: ", json.encode(OnlinePlayersData))
 
   for i = 1, #OnlinePlayers do
     local playerSource = OnlinePlayers[i]
     local player = CPlayer:new(playerSource)
 
     if not player then
-      return Debug("[timeout:function] CPlayer:new is retruning nil.")
+      return Debug("[timeout:function] CPlayer:new is returning nil.")
     end
 
     if player.isStaff then
-      Debug("player var:", json.encode(player))
       AdminData[tostring(playerSource)] = player
       Debug(player.name, "was added to the AdminData table.")
     end
+
+    OnlinePlayersData[tostring(playerSource)] = player
+    Debug(player.name, "was added to the OnlinePlayersData table.")
   end
 
   Debug("AdminData table after looping through all of the players: ", json.encode(AdminData))
+  Debug("OnlinePlayersData table after looping through all of the players: ", json.encode(OnlinePlayersData))
 end)
