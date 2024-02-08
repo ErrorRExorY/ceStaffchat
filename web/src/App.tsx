@@ -1,4 +1,3 @@
-//App.tsx
 // React
 import React, { useState, useEffect } from "react";
 
@@ -18,7 +17,6 @@ import { notifications } from "@mantine/notifications";
 import { Cog, Info, MessageSquare, Send, Users } from "lucide-react";
 import ChatTab from "./components/ChatTab";
 import OnlineStaffTab from "./components/OnlineStaffTab";
-import TestTab from "./components/TestTab";
 import SettingsTab from "./components/SettingsTab";
 
 debugData([
@@ -106,7 +104,7 @@ const App: React.FC = () => {
   useNuiEvent("staffchat:nui:notify", (info) => {
     if (!info) return;
     notifications.show({
-      title: "StaffChat",
+      title: "Staffchat",
       message: info,
       icon: <Info size={"16px"} />,
     });
@@ -186,9 +184,6 @@ const App: React.FC = () => {
                 <Tabs.Tab value="onlineStaff" leftSection={<Users size={16} />}>
                   Teamler
                 </Tabs.Tab>
-                <Tabs.Tab value="onlineUser" leftSection={<Users size={16} />}>
-                  User
-                </Tabs.Tab>
                 <Tabs.Tab value="settings" leftSection={<Cog size={16} />}>
                   Einstellungen
                 </Tabs.Tab>
@@ -208,12 +203,7 @@ const App: React.FC = () => {
                   userSettings={settings}
                 />
               </Tabs.Panel>
-              <Tabs.Panel value="onlineUser">
-                <TestTab
-                  staffMembers={activeStaff}
-                  userSettings={settings}
-                />
-              </Tabs.Panel>
+
               <Tabs.Panel value="settings">
                 <SettingsTab userSettings={settings} />
               </Tabs.Panel>

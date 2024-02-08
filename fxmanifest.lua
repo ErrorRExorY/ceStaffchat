@@ -2,8 +2,8 @@ fx_version "cerulean"
 lua54 'yes'
 game 'gta5'
 
-author 'CaptainExorY'
-description 'Advanced StaffChat'
+author 'vipex [Discord: vipex.v]'
+description 'Advanced NUI Based FiveM StaffChat'
 ui_page 'web/dist/index.html'
 
 shared_scripts {
