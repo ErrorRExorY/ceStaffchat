@@ -59,12 +59,12 @@ jobs:
       - name: Bundle files
         run: |
           ls
-          mkdir -p ./temp/v-staffchat
-          mkdir -p ./temp/v-staffchat/web/
+          mkdir -p ./temp/staffchat
+          mkdir -p ./temp/staffchat/web/
           cp ./{LICENSE,README.md,fxmanifest.lua,config.lua,sv_config.lua} ./temp/v-staffchat
-          cp -r ./{client,server,shared} ./temp/v-staffchat
-          cp -r ./web/dist ./temp/v-staffchat/web/
-          cd ./temp && zip -r ../v-staffchat.zip ./v-staffchat
+          cp -r ./{client,server,shared} ./temp/staffchat
+          cp -r ./web/dist ./temp/staffchat/web/
+          cd ./temp && zip -r ../staffchat.zip ./staffchat
 
       - name: Create Release
         uses: 'marvinpinto/action-automatic-releases@v1.2.1'
@@ -73,7 +73,7 @@ jobs:
           repo_token: '${{ secrets.GITHUB_TOKEN }}'
           title: ${{ env.RELEASE_VERSION }}
           prerelease: false
-          files: v-staffchat.zip
+          files: staffchat.zip
 
         env:
           CI: false
