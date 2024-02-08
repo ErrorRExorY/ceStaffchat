@@ -81,7 +81,7 @@ const SettingsTab: React.FC<Props> = ({ userSettings }) => {
           </div>
           <div className="flex flex-col justify-center items-center mt-10">
             <p className="font-bold mb-2 font-horizon bg-[#1a1a1a] rounded px-2 py-1 bg-opacity-50 border border-[#1a1a1a]">
-              Settings
+              Einstellungen
             </p>
             <div className="flex flex-col justify-center items-center mt-5">
               <div

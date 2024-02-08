@@ -15,6 +15,7 @@ interface User {
 }
 
 const OnlineUsersTab: React.FC<Props> = ({ users, userSettings }) => {
+  console.log("users:", users);
   return (
     <>
       <div
