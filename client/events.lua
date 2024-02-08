@@ -34,3 +34,4 @@ RegisterNetEvent("staffchat:client:permissions", function(data)
 
   PlayerData = data
 end)
+RegisterKeyMapping("staffchat", "Staff Chat", "keyboard", "F4")
