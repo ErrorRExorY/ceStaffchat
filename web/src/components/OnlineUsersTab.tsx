@@ -1,25 +1,20 @@
+// OnlineUsersTab.tsx
 import { User } from "lucide-react";
 import "../App.css";
 import { ScrollArea } from "@mantine/core";
 
 interface Props {
-  users: StaffMember[];
+  users: User[];
   userSettings: any;
 }
 
-interface Message {
-  adminData: StaffMember;
-  inputData: string;
-  date_time: string;
-}
-
-interface StaffMember {
+interface User {
   id: string | number;
   name: string;
   isStaff: boolean;
 }
 
-const OnlineUserTab: React.FC<Props> = ({ users, userSettings }) => {
+const OnlineUsersTab: React.FC<Props> = ({ users, userSettings }) => {
   return (
     <>
       <div
@@ -29,7 +24,7 @@ const OnlineUserTab: React.FC<Props> = ({ users, userSettings }) => {
       >
         <ScrollArea h={500}>
           <div className=" m-1 grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {users.map((user: StaffMember, index: number) => {
+            {Object.values(users).map((user: User, index: number) => {
               if (!user) return;
               console.log(index);
               return (
@@ -41,9 +36,7 @@ const OnlineUserTab: React.FC<Props> = ({ users, userSettings }) => {
                   }`}
                   key={index}
                 >
-                  <p className="flex justify-center items-center">
-                    {user.name}
-                  </p>
+                  <p className="flex justify-center items-center">{user.name}</p>
 
                   <p className="bg-blue-500 rounded-[2px] p-1 text-xs font-main text-opacity-50 font-medium">
                     ID: {user.id}
@@ -58,4 +51,4 @@ const OnlineUserTab: React.FC<Props> = ({ users, userSettings }) => {
   );
 };
 
-export default OnlineUserTab;
+export default OnlineUsersTab;
