@@ -3,8 +3,8 @@
 
 .font-main {
   font-family: "Rajdhani", sans-serif;
-  text-shadow: 0 0 10px rgba(0, 89, 255, 1), 0 0 20px rgba(0, 89, 255, 1),
-    0 0 30px rgba(0, 89, 255, 1);
+  text-shadow: 0 0 10px rgb(255, 0, 0), 0 0 20px rgb(255, 0, 0),
+    0 0 30px rgb(255, 0, 0);
 }
 
 .coolstuff {
@@ -86,7 +86,7 @@ a:hover {
 
 .font-main {
   font-family: "Rajdhani", sans-serif;
-  text-shadow: 0 0 10px rgb(255, 0, 0), 0 0 20px rgba(0, 89, 255, 1),
+  text-shadow: 0 0 10px rgb(255, 0, 0), 0 0 20px rgb(255, 0, 0),
     0 0 30px rgb(255, 0, 0);
 }
 
