@@ -61,7 +61,7 @@ jobs:
           ls
           mkdir -p ./temp/staffchat
           mkdir -p ./temp/staffchat/web/
-          cp ./{LICENSE,README.md,fxmanifest.lua,config.lua,sv_config.lua} ./temp/v-staffchat
+          cp ./{LICENSE,README.md,fxmanifest.lua,config.lua,sv_config.lua} ./temp/staffchat
           cp -r ./{client,server,shared} ./temp/staffchat
           cp -r ./web/dist ./temp/staffchat/web/
           cd ./temp && zip -r ../staffchat.zip ./staffchat
