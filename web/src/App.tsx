@@ -1,3 +1,4 @@
+//App.tsx
 // React
 import React, { useState, useEffect } from "react";
 
@@ -17,6 +18,7 @@ import { notifications } from "@mantine/notifications";
 import { Cog, Info, MessageSquare, Send, Users } from "lucide-react";
 import ChatTab from "./components/ChatTab";
 import OnlineStaffTab from "./components/OnlineStaffTab";
+import TestTab from "./components/TestTab";
 import SettingsTab from "./components/SettingsTab";
 
 debugData([
@@ -104,7 +106,7 @@ const App: React.FC = () => {
   useNuiEvent("staffchat:nui:notify", (info) => {
     if (!info) return;
     notifications.show({
-      title: "Staffchat",
+      title: "StaffChat",
       message: info,
       icon: <Info size={"16px"} />,
     });
@@ -119,8 +121,8 @@ const App: React.FC = () => {
 
     if (!visible && settings.notifications) {
       notifications.show({
-        title: "Staff Chat | New Message",
-        message: `${data.adminData.name} [ID - ${data.adminData.id}] Sent a new message!`,
+        title: "StaffChat | Neue Nachricht!",
+        message: `${data.adminData.name} [ID - ${data.adminData.id}] hat eine Nachricht gesendet!`,
         icon: <Send size={16} />,
       });
     }
@@ -179,13 +181,16 @@ const App: React.FC = () => {
                   leftSection={<MessageSquare className="bg-blue" size={16} />}
                   className="p-1"
                 >
-                  Chat Tab
+                  Chat
                 </Tabs.Tab>
                 <Tabs.Tab value="onlineStaff" leftSection={<Users size={16} />}>
-                  Online Staff
+                  Teamler
+                </Tabs.Tab>
+                <Tabs.Tab value="onlineUser" leftSection={<Users size={16} />}>
+                  User
                 </Tabs.Tab>
                 <Tabs.Tab value="settings" leftSection={<Cog size={16} />}>
-                  Settings
+                  Einstellungen
                 </Tabs.Tab>
               </Tabs.List>
 
@@ -203,7 +208,12 @@ const App: React.FC = () => {
                   userSettings={settings}
                 />
               </Tabs.Panel>
-
+              <Tabs.Panel value="onlineUser">
+                <OnlineStaffTab
+                  staffMembers={activeStaff}
+                  userSettings={settings}
+                />
+              </Tabs.Panel>
               <Tabs.Panel value="settings">
                 <SettingsTab userSettings={settings} />
               </Tabs.Panel>
