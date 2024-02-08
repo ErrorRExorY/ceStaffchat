@@ -184,6 +184,9 @@ const App: React.FC = () => {
                 <Tabs.Tab value="onlineStaff" leftSection={<Users size={16} />}>
                   Teamler
                 </Tabs.Tab>
+                <Tabs.Tab value="onlineStaff" leftSection={<Users size={16} />}>
+                  User
+                </Tabs.Tab>
                 <Tabs.Tab value="settings" leftSection={<Cog size={16} />}>
                   Einstellungen
                 </Tabs.Tab>
@@ -193,6 +196,13 @@ const App: React.FC = () => {
                 <ChatTab
                   messages={messages}
                   sourceData={sourceData}
+                  userSettings={settings}
+                />
+              </Tabs.Panel>
+
+              <Tabs.Panel value="onlineStaff">
+                <OnlineStaffTab
+                  staffMembers={activeStaff}
                   userSettings={settings}
                 />
               </Tabs.Panel>
