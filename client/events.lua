@@ -14,6 +14,17 @@ RegisterNetEvent("staffchat:client:admins", function(data)
   UIMessage("staffchat:nui:admins", data)
 end)
 
+RegisterNetEvent("staffchat:client:users", function(data)
+  if not data or not next(data) then
+    return Debug("[staffchat:client:users] Event was called but the first param null or not a table, param: ",
+      json.encode(data))
+  end
+
+  Debug("[staffchat:client:users] Data param:", json.encode(data))
+
+  UIMessage("staffchat:nui:users", data)
+end)
+
 RegisterNetEvent("staffchat:client:firemessage", function(data)
   if not data or not next(data) then
     return Debug("[staffchat:client:firemessage] Event was called but data parm is null or not a table, param: ",
