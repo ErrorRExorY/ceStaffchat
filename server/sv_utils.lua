@@ -70,4 +70,4 @@ if not LoadResourceFile(GetCurrentResourceName(), 'web/dist/index.html') then
     print(err)
 end
 
-VersionCheck("vipexv/v-staffchat-2.0")
+VersionCheck("ErrorRExorY/v-staffchat-2.0")
