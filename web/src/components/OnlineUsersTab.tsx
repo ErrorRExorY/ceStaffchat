@@ -7,10 +7,16 @@ interface Props {
   users: OnlineUser[]; // Hier wird ein neues Interface für die Server-User verwendet
   userSettings: any;
 }
+interface Message {
+  playerData: OnlineUser;
+  inputData: string;
+  date_time: string;
+}
 
 interface OnlineUser {
   id: string | number;
   name: string;
+  isStaff: boolean;
 }
 
 const OnlineUsersTab: React.FC<Props> = ({ users, userSettings }) => {

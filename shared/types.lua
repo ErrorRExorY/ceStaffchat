@@ -7,3 +7,8 @@
 ---@field adminData adminData
 ---@field inputData string
 ---@field date_time string
+
+---@class playerData
+---@field id string | number
+---@field name string
+---@field isStaff boolean

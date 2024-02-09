@@ -2,7 +2,7 @@
 AdminData = {}
 
 ---@type playerData[]
-OnlinePlayersData = {}
+PlayerData = {}
 
 ---@param _source string
 ---@param _oldID string
@@ -22,8 +22,8 @@ AddEventHandler("playerJoining", function(_source, _oldID)
     Debug(player.name, "was added to the AdminData table.")
   end
 
-  OnlinePlayersData[tostring(source)] = player
-  Debug(player.name, "was added to the OnlinePlayersData table.")
+  PlayerData[tostring(source)] = player
+  Debug(player.name, "was added to the PlayerData table.")
 end)
 
 AddEventHandler("playerDropped", function(_reason)
@@ -32,15 +32,15 @@ AddEventHandler("playerDropped", function(_reason)
     Debug("[netEvent:playerDropped] Event was triggered, and the player was removed from the AdminData table.")
   end
 
-  OnlinePlayersData[tostring(source)] = nil
-  Debug("[netEvent:playerDropped] Event was triggered, and the player was removed from the OnlinePlayersData table.")
+  PlayerData[tostring(source)] = nil
+  Debug("[netEvent:playerDropped] Event was triggered, and the player was removed from the PlayerData table.")
 end)
 
 SetTimeout(200, function()
   local OnlinePlayers = GetPlayers()
 
   Debug("AdminData table before looping through all players: ", json.encode(AdminData))
-  Debug("OnlinePlayersData table before looping through all players: ", json.encode(OnlinePlayersData))
+  Debug("PlayerData table before looping through all players: ", json.encode(PlayerData))
 
   for i = 1, #OnlinePlayers do
     local playerSource = OnlinePlayers[i]
@@ -55,10 +55,10 @@ SetTimeout(200, function()
       Debug(player.name, "was added to the AdminData table.")
     end
 
-    OnlinePlayersData[tostring(playerSource)] = player
-    Debug(player.name, "was added to the OnlinePlayersData table.")
+    PlayerData[tostring(playerSource)] = player
+    Debug(player.name, "was added to the PlayerData table.")
   end
 
   Debug("AdminData table after looping through all of the players: ", json.encode(AdminData))
-  Debug("OnlinePlayersData table after looping through all of the players: ", json.encode(OnlinePlayersData))
+  Debug("PlayerData table after looping through all of the players: ", json.encode(PlayerData))
 end)
