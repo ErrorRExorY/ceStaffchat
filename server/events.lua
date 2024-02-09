@@ -20,6 +20,7 @@ RegisterNetEvent("staffchat:server:users", function()
     local playerId = GetPlayerServerId(player)
     local playerName = GetPlayerName(player)
     table.insert(playerList, { id = playerId, name = playerName })
+    print("Sending users to client:", json.encode(playerList))
   end
 
   TriggerClientEvent("staffchat:client:users", source, playerList)
