@@ -20,10 +20,10 @@ AddEventHandler("playerJoining", function(_source, _oldID)
   if player.isStaff then
     AdminData[tostring(source)] = player
     Debug(player.name, "was added to the AdminData table.")
+  else
+    PlayerData[tostring(source)] = player
+    Debug(player.name, "was added to the PlayerData table.")
   end
-
-  PlayerData[tostring(source)] = player
-  Debug(player.name, "was added to the PlayerData table.")
 end)
 
 AddEventHandler("playerDropped", function(_reason)
@@ -32,8 +32,10 @@ AddEventHandler("playerDropped", function(_reason)
     Debug("[netEvent:playerDropped] Event was triggered, and the player was removed from the AdminData table.")
   end
 
-  PlayerData[tostring(source)] = nil
-  Debug("[netEvent:playerDropped] Event was triggered, and the player was removed from the PlayerData table.")
+  if PlayerData[tostring(source)] then
+    PlayerData[tostring(source)] = nil
+    Debug("[netEvent:playerDropped] Event was triggered, and the player was removed from the PlayerData table.")
+  end
 end)
 
 SetTimeout(200, function()
@@ -53,12 +55,11 @@ SetTimeout(200, function()
     if player.isStaff then
       AdminData[tostring(playerSource)] = player
       Debug(player.name, "was added to the AdminData table.")
+    else
+      PlayerData[tostring(playerSource)] = player
+      Debug(player.name, "was added to the PlayerData table.")
     end
-
-    PlayerData[tostring(playerSource)] = player
-    Debug(player.name, "was added to the PlayerData table.")
   end
 
   Debug("AdminData table after looping through all of the players: ", json.encode(AdminData))
-  Debug("PlayerData table after looping through all of the players: ", json.encode(PlayerData))
-end)
+  Debug(
