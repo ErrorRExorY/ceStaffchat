@@ -17,7 +17,7 @@ import { notifications } from "@mantine/notifications";
 import { Cog, Info, MessageSquare, Send, Users } from "lucide-react";
 import ChatTab from "./components/ChatTab";
 import OnlineStaffTab from "./components/OnlineStaffTab";
-import OnlineUserTab from "./components/OnlineUserTab";
+import OnlineUsersTab from "./components/OnlineUsersTab";
 import SettingsTab from "./components/SettingsTab";
 
 debugData([
@@ -56,12 +56,6 @@ interface StaffMember {
   isStaff: boolean;
 }
 
-interface OnlineUsers {
-  id: string | number;
-  name: string;
-  isStaff: boolean;
-}
-
 interface Settings {
   theme: string;
   notifications: boolean;
@@ -74,7 +68,6 @@ const initialSettings: Settings = {
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
-  
   const [sourceData, setSourceData] = useState<StaffMember>({
     id: 0,
     name: "",
@@ -82,7 +75,6 @@ const App: React.FC = () => {
   });
   const [messages, setMessages] = useState<Message[]>([]);
   const [activeStaff, setActiveStaff] = useState<StaffMember[]>([]);
-  const [activeUsers, setActiveUsers] = useState<OnlineUsers[]>([]); // Annahme: Du hast eine User-Schnittstelle
 
   const [settings, setSettings] = useState<Settings>(initialSettings);
 
@@ -140,8 +132,6 @@ const App: React.FC = () => {
   // });
 
   useNuiEvent("staffchat:nui:admins", setActiveStaff);
-
-  useNuiEvent("staffchat:nui:users", setActiveUsers);
 
   useNuiEvent<boolean>("setVisible", setVisible);
 
@@ -219,10 +209,10 @@ const App: React.FC = () => {
               </Tabs.Panel>
 
               <Tabs.Panel value="onlineUsers">
-                <OnlineUserTab
-                 onlineUser={activeUsers} 
-                 userSettings={settings} 
-                 />
+                <OnlineUsersTab
+                  users={activeStaff}
+                  userSettings={settings}
+                />
               </Tabs.Panel>
 
               <Tabs.Panel value="settings">

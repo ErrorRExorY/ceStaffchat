@@ -1,4 +1,3 @@
--- server/events.lua
 RegisterNetEvent("staffchat:server:admins", function()
   if not source then
     return Debug("[staffchat:server:admins] Event was called but source is nil.")
@@ -10,6 +9,19 @@ RegisterNetEvent("staffchat:server:admins", function()
   end
 
   TriggerClientEvent("staffchat:client:admins", source, AdminData)
+end)
+
+RegisterNetEvent("staffchat:server:users", function()
+  local allPlayers = GetPlayers()
+  local playerList = {}
+
+  for _, player in ipairs(allPlayers) do
+    local playerId = GetPlayerServerId(player)
+    local playerName = GetPlayerName(player)
+    table.insert(playerList, { id = playerId, name = playerName })
+  end
+
+  TriggerClientEvent("staffchat:client:users", source, playerList)
 end)
 
 ---@param data messageInfo
