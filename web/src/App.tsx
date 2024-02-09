@@ -56,6 +56,13 @@ interface StaffMember {
   isStaff: boolean;
 }
 
+interface User {
+  id: string | number;
+  name: string;
+  // Unused but it's in there.
+  isStaff: boolean;
+}
+
 interface Settings {
   theme: string;
   notifications: boolean;
@@ -75,6 +82,7 @@ const App: React.FC = () => {
   });
   const [messages, setMessages] = useState<Message[]>([]);
   const [activeStaff, setActiveStaff] = useState<StaffMember[]>([]);
+  const [activeUsers, setActiveUsers] = useState<User[]>([]);
 
   const [settings, setSettings] = useState<Settings>(initialSettings);
 
@@ -132,6 +140,8 @@ const App: React.FC = () => {
   // });
 
   useNuiEvent("staffchat:nui:admins", setActiveStaff);
+
+  useNuiEvent("staffchat:nui:users", setActiveUsers);
 
   useNuiEvent<boolean>("setVisible", setVisible);
 
@@ -210,7 +220,7 @@ const App: React.FC = () => {
 
               <Tabs.Panel value="onlineUsers">
                 <OnlineUsersTab
-                  users={activeStaff}
+                  users={activeUsers}
                   userSettings={settings}
                 />
               </Tabs.Panel>
