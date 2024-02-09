@@ -17,7 +17,6 @@ import { notifications } from "@mantine/notifications";
 import { Cog, Info, MessageSquare, Send, Users } from "lucide-react";
 import ChatTab from "./components/ChatTab";
 import OnlineStaffTab from "./components/OnlineStaffTab";
-import OnlineUsersTab from "./components/OnlineUsersTab";
 import SettingsTab from "./components/SettingsTab";
 
 debugData([
@@ -56,13 +55,6 @@ interface StaffMember {
   isStaff: boolean;
 }
 
-interface User {
-  id: string | number;
-  name: string;
-  // Unused but it's in there.
-  isStaff: boolean;
-}
-
 interface Settings {
   theme: string;
   notifications: boolean;
@@ -82,7 +74,6 @@ const App: React.FC = () => {
   });
   const [messages, setMessages] = useState<Message[]>([]);
   const [activeStaff, setActiveStaff] = useState<StaffMember[]>([]);
-  const [activeUsers, setActiveUsers] = useState<User[]>([]);
 
   const [settings, setSettings] = useState<Settings>(initialSettings);
 
@@ -198,7 +189,7 @@ const App: React.FC = () => {
                 <Tabs.Tab value="onlineStaff" leftSection={<Users size={16} />}>
                   Teamler
                 </Tabs.Tab>
-                <Tabs.Tab value="onlineUsers" leftSection={<Users size={16} />}>
+                <Tabs.Tab value="onlineStaff" leftSection={<Users size={16} />}>
                   User
                 </Tabs.Tab>
                 <Tabs.Tab value="settings" leftSection={<Cog size={16} />}>
@@ -222,8 +213,8 @@ const App: React.FC = () => {
               </Tabs.Panel>
 
               <Tabs.Panel value="onlineUsers">
-                <OnlineUsersTab
-                  users={activeUsers}
+                <OnlineStaffTab
+                  staffMembers={activeStaff}
                   userSettings={settings}
                 />
               </Tabs.Panel>
