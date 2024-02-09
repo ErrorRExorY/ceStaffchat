@@ -11,7 +11,6 @@ interface Props {
 interface User {
   id: string | number;
   name: string;
-  isStaff: boolean;
 }
 
 const OnlineUsersTab: React.FC<Props> = ({ users, userSettings }) => {
