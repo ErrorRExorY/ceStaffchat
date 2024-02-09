@@ -141,7 +141,10 @@ const App: React.FC = () => {
 
   useNuiEvent("staffchat:nui:admins", setActiveStaff);
 
-  useNuiEvent("staffchat:nui:users", setActiveUsers);
+  useNuiEvent("staffchat:client:users", (userList) => {
+    console.log("Received user list:", userList);
+    // Setzen Sie den Zustand mit den empfangenen Benutzerdaten
+  });
 
   useNuiEvent<boolean>("setVisible", setVisible);
 
