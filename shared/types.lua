@@ -11,4 +11,3 @@
 ---@class playerData
 ---@field id string | number
 ---@field name string
----@field isStaff boolean

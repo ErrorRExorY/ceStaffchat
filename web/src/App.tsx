@@ -56,7 +56,7 @@ interface StaffMember {
   isStaff: boolean;
 }
 
-interface OnlineUser {
+interface OnlineUsers {
   id: string | number;
   name: string;
   isStaff: boolean;
@@ -74,7 +74,7 @@ const initialSettings: Settings = {
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
-  const [activeUsers, setActiveUsers] = useState<OnlineUser[]>([]); // Annahme: Du hast eine User-Schnittstelle
+  
   const [sourceData, setSourceData] = useState<StaffMember>({
     id: 0,
     name: "",
@@ -82,7 +82,7 @@ const App: React.FC = () => {
   });
   const [messages, setMessages] = useState<Message[]>([]);
   const [activeStaff, setActiveStaff] = useState<StaffMember[]>([]);
-  
+  const [activeUsers, setActiveUsers] = useState<OnlineUsers[]>([]); // Annahme: Du hast eine User-Schnittstelle
 
   const [settings, setSettings] = useState<Settings>(initialSettings);
 

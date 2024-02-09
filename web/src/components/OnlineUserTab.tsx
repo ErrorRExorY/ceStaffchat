@@ -1,3 +1,5 @@
+// OnlineUserTab.tsx
+
 import { User } from "lucide-react";
 import "../App.css";
 import { ScrollArea } from "@mantine/core";
@@ -16,10 +18,9 @@ interface Message {
 interface OnlineUsers {
   id: string | number;
   name: string;
-  isStaff: boolean;
 }
 
-const TestTab: React.FC<Props> = ({ onlineUser, userSettings }) => {
+const OnlineUserTab: React.FC<Props> = ({ onlineUser, userSettings }) => {
   return (
     <>
       <div
@@ -60,4 +61,4 @@ const TestTab: React.FC<Props> = ({ onlineUser, userSettings }) => {
   );
 };
 
-export default TestTab;
+export default OnlineUserTab;
