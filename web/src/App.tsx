@@ -1,3 +1,4 @@
+//App.tsx
 // React
 import React, { useState, useEffect } from "react";
 
@@ -17,7 +18,7 @@ import { notifications } from "@mantine/notifications";
 import { Cog, Info, MessageSquare, Send, Users } from "lucide-react";
 import ChatTab from "./components/ChatTab";
 import OnlineStaffTab from "./components/OnlineStaffTab";
-import OnlineUsersTab from "./components/OnlineUsersTab";
+import OnlineUsersTab from "./components/OnlineUserTab";
 import SettingsTab from "./components/SettingsTab";
 
 debugData([
@@ -75,6 +76,7 @@ const App: React.FC = () => {
   });
   const [messages, setMessages] = useState<Message[]>([]);
   const [activeStaff, setActiveStaff] = useState<StaffMember[]>([]);
+  const [activeUsers, setActiveUsers] = useState<StaffMember[]>([]);
 
   const [settings, setSettings] = useState<Settings>(initialSettings);
 
@@ -132,6 +134,10 @@ const App: React.FC = () => {
   // });
 
   useNuiEvent("staffchat:nui:admins", setActiveStaff);
+
+  useNuiEvent("staffchat:nui:users", (users: StaffMember[]) => {
+    setActiveUsers(users);
+  });
 
   useNuiEvent<boolean>("setVisible", setVisible);
 
@@ -210,7 +216,7 @@ const App: React.FC = () => {
 
               <Tabs.Panel value="onlineUsers">
                 <OnlineUsersTab
-                  users={activeStaff}
+                  onlineUser={activeUsers}
                   userSettings={settings}
                 />
               </Tabs.Panel>
