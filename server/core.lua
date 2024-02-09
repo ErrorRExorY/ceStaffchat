@@ -22,7 +22,6 @@ AddEventHandler("playerJoining", function(_source, _oldID)
     Debug(player.name, "was added to the AdminData table.")
     PlayerData[tostring(source)] = player
     Debug(player.name, "was added to the PlayerData table.")
-  end
 end)
 
 AddEventHandler("playerDropped", function(_reason)
