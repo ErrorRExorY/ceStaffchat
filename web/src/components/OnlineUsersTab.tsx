@@ -1,20 +1,17 @@
-// OnlineUsersTab.tsx
-import { User as LucideUser } from "lucide-react"; // Umbenennung, um Konflikte zu vermeiden
-import "../App.css";
+import React from "react";
 import { ScrollArea } from "@mantine/core";
 
 interface Props {
-  users: OnlineUser[]; // Hier wird ein neues Interface für die Server-User verwendet
+  users: UserData[];
   userSettings: any;
 }
 
-interface OnlineUser {
+interface UserData {
   id: string | number;
   name: string;
 }
 
 const OnlineUsersTab: React.FC<Props> = ({ users, userSettings }) => {
-  console.log("users:", JSON.stringify(users));
   return (
     <>
       <div
@@ -24,8 +21,8 @@ const OnlineUsersTab: React.FC<Props> = ({ users, userSettings }) => {
       >
         <ScrollArea h={500}>
           <div className=" m-1 grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {Object.values(users).map((user: OnlineUser, index: number) => {
-              if (!user) return;
+            {Object.values(users).map((user: UserData, index: number) => {
+              if (!user) return null; // Filtern Sie ungültige Benutzerdaten
               console.log(index);
               return (
                 <div

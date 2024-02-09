@@ -1,3 +1,4 @@
+-- server/events.lua
 RegisterNetEvent("staffchat:server:admins", function()
   if not source then
     return Debug("[staffchat:server:admins] Event was called but source is nil.")
