@@ -19,8 +19,10 @@ AddEventHandler("playerJoining", function(_source, _oldID)
 
   if player.isStaff then
     AdminData[tostring(source)] = player
-    PlayerData[tostring(source)] = player
     Debug(player.name, "was added to the AdminData table.")
+  else if !player.isStaff then
+    PlayerData[tostring(source)] = player
+    Debug(player.name, "was added to the PlayerData table.")
   end
 end)
 
@@ -52,8 +54,9 @@ SetTimeout(200, function()
 
     if player.isStaff then
       AdminData[tostring(playerSource)] = player
+      PlayerData[tostring(playerSource)] = player
       Debug(player.name, "was added to the AdminData table.")
-    else
+    else if !player.isStaff then
       PlayerData[tostring(playerSource)] = player
       Debug(player.name, "was added to the PlayerData table.")
     end
