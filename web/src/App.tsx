@@ -18,7 +18,7 @@ import { notifications } from "@mantine/notifications";
 import { Cog, Info, MessageSquare, Send, Users } from "lucide-react";
 import ChatTab from "./components/ChatTab";
 import OnlineStaffTab from "./components/OnlineStaffTab";
-import OnlineUsersTab from "./components/OnlineUserTab";
+import OnlineUsersTab from "./components/OnlineTestTab";
 import SettingsTab from "./components/SettingsTab";
 
 debugData([
@@ -221,7 +221,7 @@ const App: React.FC = () => {
 
               <Tabs.Panel value="onlineUsers">
                 <OnlineUsersTab
-                  onlineMembers={activeUsers}
+                  userMembers={activeUsers}
                   userSettings={settings}
                 />
               </Tabs.Panel>

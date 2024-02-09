@@ -19,7 +19,7 @@ RegisterNetEvent("staffchat:server:users", function()
 
   if PlayerData[tostring(source)] then
     -- TODO: Notification system.
-    return Debug("[netEvent:staffchat:server:users] Player is not a staff member.")
+    return Debug("[netEvent:staffchat:server:users] Player is member.")
   end
 
   TriggerClientEvent("staffchat:client:users", source, PlayerData)
