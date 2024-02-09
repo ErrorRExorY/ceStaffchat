@@ -220,7 +220,7 @@ const App: React.FC = () => {
 
               <Tabs.Panel value="onlineUsers">
                 <OnlineUsersTab
-                  onlineUser={activeUsers}
+                  staffMembers={activeUsers}
                   userSettings={settings}
                 />
               </Tabs.Panel>
