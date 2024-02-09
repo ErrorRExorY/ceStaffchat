@@ -60,6 +60,7 @@ interface StaffMember {
 interface OnlineUsers {
   id: string | number;
   name: string;
+  // Unused but it's in there.
   isStaff: boolean;
 }
 

@@ -17,12 +17,12 @@ RegisterNetEvent("staffchat:server:users", function()
     return Debug("[staffchat:server:users] Event was called but source is nil.")
   end
 
-  if not AdminData[tostring(source)] then
+  if not PlayerData[tostring(source)] then
     -- TODO: Notification system.
     return Debug("[netEvent:staffchat:server:users] Player is not a staff member.")
   end
 
-  TriggerClientEvent("staffchat:client:users", source, AdminData)
+  TriggerClientEvent("staffchat:client:users", source, PlayerData)
 end)
 
 ---@param data messageInfo

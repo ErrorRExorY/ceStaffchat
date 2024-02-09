@@ -1,3 +1,4 @@
+--server/core.lua
 ---@type adminData[]
 AdminData = {}
 
