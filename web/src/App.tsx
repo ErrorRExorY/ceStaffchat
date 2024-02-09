@@ -221,7 +221,7 @@ const App: React.FC = () => {
 
               <Tabs.Panel value="onlineUsers">
                 <OnlineUsersTab
-                  staffMembers={activeUsers}
+                  onlineMembers={activeUsers}
                   userSettings={settings}
                 />
               </Tabs.Panel>
