@@ -74,6 +74,7 @@ const initialSettings: Settings = {
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
+  const [activeUsers, setActiveUsers] = useState<OnlineUser[]>([]); // Annahme: Du hast eine User-Schnittstelle
   const [sourceData, setSourceData] = useState<StaffMember>({
     id: 0,
     name: "",
@@ -81,7 +82,7 @@ const App: React.FC = () => {
   });
   const [messages, setMessages] = useState<Message[]>([]);
   const [activeStaff, setActiveStaff] = useState<StaffMember[]>([]);
-  const [activeUsers, setActiveUsers] = useState<OnlineUser[]>([]); // Annahme: Du hast eine User-Schnittstelle
+  
 
   const [settings, setSettings] = useState<Settings>(initialSettings);
 
@@ -140,7 +141,7 @@ const App: React.FC = () => {
 
   useNuiEvent("staffchat:nui:admins", setActiveStaff);
 
-  useNuiEvent("staffchat:nui:users", setActiveUsers);
+
 
   useNuiEvent<boolean>("setVisible", setVisible);
 
@@ -194,7 +195,7 @@ const App: React.FC = () => {
                 <Tabs.Tab value="onlineStaff" leftSection={<Users size={16} />}>
                   Teamler
                 </Tabs.Tab>
-                <Tabs.Tab value="onlineStaff" leftSection={<Users size={16} />}>
+                <Tabs.Tab value="onlineUsers" leftSection={<Users size={16} />}>
                   User
                 </Tabs.Tab>
                 <Tabs.Tab value="settings" leftSection={<Cog size={16} />}>
