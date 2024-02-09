@@ -3,25 +3,23 @@ import "../App.css";
 import { ScrollArea } from "@mantine/core";
 
 interface Props {
-  onlineUsers: OnlineUser[];
+  onlineUser: OnlineUsers[];
   userSettings: any;
 }
 
 interface Message {
-  playerData: OnlineUser;
+  playerData: OnlineUsers;
   inputData: string;
   date_time: string;
 }
 
-interface OnlineUser {
+interface OnlineUsers {
   id: string | number;
   name: string;
   isStaff: boolean;
 }
 
-const OnlineUserTab: React.FC<Props> = ({ onlineUsers, userSettings }) => {
-  const normalUsers = onlineUsers.filter((user) => !user.isStaff);
-
+const TestTab: React.FC<Props> = ({ onlineUser, userSettings }) => {
   return (
     <>
       <div
@@ -31,28 +29,30 @@ const OnlineUserTab: React.FC<Props> = ({ onlineUsers, userSettings }) => {
       >
         <ScrollArea h={500}>
           <div className=" m-1 grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {normalUsers.map((user: OnlineUser, index: number) => {
-              if (!user) return;
-              console.log(index);
-              return (
-                <div
-                  className={`rounded-[2px] text-xs flex justify-between px-2 py-1 ${
-                    userSettings.theme === "default"
-                      ? "bg-[#1a1a1a]"
-                      : "bg-[#2a2a2a]"
-                  }`}
-                  key={index}
-                >
-                  <p className="flex justify-center items-center">
-                    {user.name}
-                  </p>
+            {Object.values(onlineUser).map(
+              (users: OnlineUsers, index: number) => {
+                if (!users) return;
+                console.log(index);
+                return (
+                  <div
+                    className={`rounded-[2px] text-xs flex justify-between px-2 py-1 ${
+                      userSettings.theme === "default"
+                        ? "bg-[#1a1a1a]"
+                        : "bg-[#2a2a2a]"
+                    }`}
+                    key={index}
+                  >
+                    <p className="flex justify-center items-center">
+                      {users.name}
+                    </p>
 
-                  <p className="bg-blue-500 rounded-[2px] p-1 text-xs font-main text-opacity-50 font-medium">
-                    ID: {user.id}
-                  </p>
-                </div>
-              );
-            })}
+                    <p className="bg-blue-500 rounded-[2px] p-1 text-xs font-main text-opacity-50 font-medium">
+                      ID: {users.id}
+                    </p>
+                  </div>
+                );
+              }
+            )}
           </div>
         </ScrollArea>
       </div>
@@ -60,4 +60,4 @@ const OnlineUserTab: React.FC<Props> = ({ onlineUsers, userSettings }) => {
   );
 };
 
-export default OnlineUserTab;
+export default TestTab;

@@ -141,7 +141,7 @@ const App: React.FC = () => {
 
   useNuiEvent("staffchat:nui:admins", setActiveStaff);
 
-
+  useNuiEvent("staffchat:nui:users", setActiveUsers);
 
   useNuiEvent<boolean>("setVisible", setVisible);
 
