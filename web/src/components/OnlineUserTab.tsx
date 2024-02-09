@@ -4,23 +4,23 @@ import "../App.css";
 import { ScrollArea } from "@mantine/core";
 
 interface Props {
-  staffMembers: StaffMember[];
+  onlineMembers: OnlineUsers[];
   userSettings: any;
 }
 
 interface Message {
-  playerData: StaffMember;
+  playerData: OnlineUsers;
   inputData: string;
   date_time: string;
 }
 
-interface StaffMember {
+interface OnlineUsers {
   id: string | number;
   name: string;
   isStaff: boolean;
 }
 
-const OnlineUserTab: React.FC<Props> = ({ staffMembers, userSettings }) => {
+const OnlineUserTab: React.FC<Props> = ({ onlineMembers, userSettings }) => {
   return (
     <>
       <div
@@ -30,9 +30,9 @@ const OnlineUserTab: React.FC<Props> = ({ staffMembers, userSettings }) => {
       >
         <ScrollArea h={500}>
           <div className=" m-1 grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {Object.values(staffMembers).map(
-              (staff: StaffMember, index: number) => {
-                if (!staff) return;
+            {Object.values(onlineMembers).map(
+              (user: OnlineUsers, index: number) => {
+                if (!user) return;
                 console.log(index);
                 return (
                   <div
@@ -44,11 +44,11 @@ const OnlineUserTab: React.FC<Props> = ({ staffMembers, userSettings }) => {
                     key={index}
                   >
                     <p className="flex justify-center items-center">
-                      {staff.name}
+                      {user.name}
                     </p>
 
                     <p className="bg-blue-500 rounded-[2px] p-1 text-xs font-main text-opacity-50 font-medium">
-                      ID: {staff.id}
+                      ID: {user.id}
                     </p>
                   </div>
                 );
