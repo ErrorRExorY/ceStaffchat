@@ -9,7 +9,7 @@ interface Props {
 }
 
 interface Message {
-  adminData: StaffMember;
+  playerData: StaffMember;
   inputData: string;
   date_time: string;
 }
