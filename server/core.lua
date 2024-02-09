@@ -62,4 +62,5 @@ SetTimeout(200, function()
   end
 
   Debug("AdminData table after looping through all of the players: ", json.encode(AdminData))
-  Debug(
+  Debug("PlayerData table after looping through all of the players: ", json.encode(PlayerData))
+end)
