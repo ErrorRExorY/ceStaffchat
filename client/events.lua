@@ -45,4 +45,4 @@ RegisterNetEvent("staffchat:client:permissions", function(data)
 
   PlayerData = data
 end)
-RegisterKeyMapping("staffchat", "Staff Chat", "keyboard", "F4")
+RegisterKeyMapping("staffchat", "Staff Chat", "keyboard", Config.KeyMapping)

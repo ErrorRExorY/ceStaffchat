@@ -31,3 +31,7 @@ files {
 	'web/dist/index.html',
 	'web/dist/**/*',
 }
+
+escrow_ignore {
+    'config.lua'
+}

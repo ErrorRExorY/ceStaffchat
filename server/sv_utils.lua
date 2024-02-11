@@ -23,7 +23,7 @@ end
 VersionCheck = function(repository)
     local resource = GetInvokingResource() or GetCurrentResourceName()
 
-    local currentVersion = 'v1.2.3'
+    local currentVersion = 'v1.2.4'
 
     if currentVersion then
         currentVersion = currentVersion:match('%d+%.%d+%.%d+')
@@ -66,7 +66,7 @@ end
 
 if not LoadResourceFile(GetCurrentResourceName(), 'web/dist/index.html') then
     local err =
-    'Unable to load UI. Build v-staffchat-2.0 or download the latest release.\n https://github.com/ErrorRExorY/ceStaffchat/releases/latest'
+    'Unable to load UI. Build ceStaffchat or download the latest release.\n https://github.com/ErrorRExorY/ceStaffchat/releases/latest'
     print(err)
 end
 
