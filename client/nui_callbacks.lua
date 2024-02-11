@@ -28,3 +28,20 @@ RegisterNUICallback("staffchat:nui:cb:clear", function(_body, cb)
   UIMessage("staffchat:clear")
   cb({})
 end)
+
+-- Buckets
+
+RegisterNUICallback('teleportToPlayer', function(data, cb)
+  TriggerServerEvent('teleportToPlayer', data)
+  cb('ok')
+end)
+
+RegisterNUICallback('teleportPlayerToMe', function(data, cb)
+  TriggerServerEvent('teleportPlayerToMe', data)
+  cb('ok')
+end)
+
+RegisterNUICallback('jailPlayer', function(data, cb)
+  TriggerServerEvent('esx_jail:sendToJail1', data.playerId, data.jailTime, data.jailReason)
+  cb('ok')
+end)
