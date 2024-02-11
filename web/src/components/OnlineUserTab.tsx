@@ -20,7 +20,7 @@ interface UserMember {
   isStaff: boolean;
 }
 
-const OnlineTestTab: React.FC<Props> = ({ userMembers, userSettings }) => {
+const OnlineUserTab: React.FC<Props> = ({ userMembers, userSettings }) => {
   return (
     <>
       <div
@@ -61,4 +61,4 @@ const OnlineTestTab: React.FC<Props> = ({ userMembers, userSettings }) => {
   );
 };
 
-export default OnlineTestTab;
+export default OnlineUserTab;
