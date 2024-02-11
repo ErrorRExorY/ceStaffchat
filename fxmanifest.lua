@@ -33,5 +33,6 @@ files {
 }
 
 escrow_ignore {
-    'config.lua'
+    'config.lua',
+	'sv_config.lua',
 }
