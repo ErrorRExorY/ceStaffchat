@@ -26,3 +26,4 @@ RegisterCommand(Config.CommandName, function()
     toggleNuiFrame(true)
     Debug('Show UI frame')
 end, false)
+-- Buckets

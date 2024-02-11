@@ -18,7 +18,6 @@ import { notifications } from "@mantine/notifications";
 import { Cog, Info, MessageSquare, Send, Users } from "lucide-react";
 import ChatTab from "./components/ChatTab";
 import OnlineStaffTab from "./components/OnlineStaffTab";
-import OnlineUsersTab from "./components/OnlineTestTab";
 import SettingsTab from "./components/SettingsTab";
 
 debugData([
@@ -196,9 +195,6 @@ const App: React.FC = () => {
                 <Tabs.Tab value="onlineStaff" leftSection={<Users size={16} />}>
                   Teamler
                 </Tabs.Tab>
-                <Tabs.Tab value="onlineUsers" leftSection={<Users size={16} />}>
-                  User
-                </Tabs.Tab>
                 <Tabs.Tab value="settings" leftSection={<Cog size={16} />}>
                   Einstellungen
                 </Tabs.Tab>
@@ -215,13 +211,6 @@ const App: React.FC = () => {
               <Tabs.Panel value="onlineStaff">
                 <OnlineStaffTab
                   staffMembers={activeStaff}
-                  userSettings={settings}
-                />
-              </Tabs.Panel>
-
-              <Tabs.Panel value="onlineUsers">
-                <OnlineUsersTab
-                  userMembers={activeUsers}
                   userSettings={settings}
                 />
               </Tabs.Panel>
