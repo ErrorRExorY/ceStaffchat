@@ -46,24 +46,4 @@ RegisterNetEvent("staffchat:client:permissions", function(data)
   PlayerData = data
 end)
 
-RegisterNetEvent('staffchat:client:receivePlayersRoutingBuckets')
-AddEventHandler('staffchat:client:receivePlayersRoutingBuckets', function(playerBuckets)
-    if ui then
-        SendNUIMessage({
-            action = "updatePlayerList",
-            players = playerBuckets
-        })
-    end
-end)
-
-TriggerServerEvent('staffchat:server:getPlayersRoutingBuckets')
-
-RegisterNetEvent('staffchat:client:setClientRoutingBucket')
-AddEventHandler('staffchat:client:setClientRoutingBucket', function(playerRoutingBucket)
-    --print('Routing-Bucket des Spielers:', playerRoutingBucket)
-    SendNUIMessage({ playerRoutingBucket = playerRoutingBucket })
-end)
-
-
-
 RegisterKeyMapping("staffchat", "Staff Chat", "keyboard", Config.KeyMapping)
